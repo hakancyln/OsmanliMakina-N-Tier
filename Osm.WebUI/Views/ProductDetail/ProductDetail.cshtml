@@ -1,0 +1,87 @@
+﻿@model Root
+@{
+    ViewData["Title"] = "ProductDetail";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/img/portfolio-header.jpg');">
+        <div class="container position-relative d-flex flex-column align-items-center">
+
+        <h2>@Model.data.name</h2>
+            <ol>
+            <li><a href="http://localhost:5274/">Ana Sayfa</a></li>
+                <li>Ekipman Detay</li>
+            </ol>
+
+        </div>
+    </div>
+
+    <!-- End Breadcrumbs -->
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-8">
+                    <div class="slides-1 portfolio-details-slider swiper">
+                        <div class="swiper-wrapper align-items-center">
+
+
+                        @if (Model.data.image == null)
+                            {
+                                <div class="swiper-slide">
+                                    <img src="~/img/error_wallpaper_image_151413_1920x1080.jpg" alt="">
+                                </div>
+
+                            }
+                            else
+                            {
+                                @foreach (var item in Model.data.images)
+                        {
+                        <div class="swiper-slide">
+                        <img src="~/@item.image" alt="">
+                        </div>
+
+
+
+                        }
+                                @*<div class="swiper-slide">
+                                <img src="~/@Model.Image" alt="">
+                                </div>*@
+                            }
+
+
+
+
+
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="portfolio-info">
+                    <h3>@Model.data.name</h3>
+
+                    </div>
+                    <div class="portfolio-description">
+                        <h2>Açıklama</h2>
+                        <p>
+                        @Model.data.description
+                        </p>
+                    </div>
+                    <div class="portfolio-description">
+                        <h2>Description</h2>
+                        <p>
+                        @Model.data.descriptionEn
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+

@@ -1,0 +1,100 @@
+﻿@using Osm.WebUI.Areas.Admin.Models;
+@model UserRoot
+@{
+    ViewData["Title"] = "User";
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Container-fluid starts -->
+    <div class="container-fluid">
+        <!-- Main content starts -->
+        <div>
+            <!-- Row Starts -->
+            <div class="row">
+                <div class="col-sm-12 p-0">
+                    <div class="main-header">
+                    </div>
+                </div>
+            </div>
+            <!-- Row end -->
+            <!-- Row start -->
+            <!-- Form Control starts -->
+            <!-- Form Control ends -->
+            <!-- Textual inputs starts -->
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-header-text">Yönetici Bilgileri</h5>
+                    </div>
+                    <div class="modal fade modal-flex" id="input-addon-Modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <h5 class="modal-title">Code Explanation for input groups &amp; addons</h5>
+                                </div>
+                                <!-- end of modal-header -->
+                                <!-- end of modal-body -->
+                            </div>
+                            <!-- end of modal-content -->
+                        </div>
+                        <!-- end of modal-dialog -->
+                    </div>
+                    <!-- end of modal -->
+
+                    <div class="card-block">
+
+                        <form class="row" method="post" action="adminkullanicibilgileri">
+                            <div class="col-lg-3">
+                            </div>
+                            <div class="col-lg-6">
+
+                                <div class="form-group row">
+                                    <div class="col-md-2"><label class="col-form-label f-w-600">Kullanıcı Adı</label></div>
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(m => m.data.UserName, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-2"><label class="col-form-label f-w-600">Şifre</label></div>
+                                    <div class="col-md-10">
+
+                                        @Html.TextBoxFor(x=>x.data.Password, new { @class = "form-control", @type = "password", @id = "password" })
+
+                                        <label>Şifreyi Göster</label> &emsp;<input type="checkbox" name="" value="" onclick="togglePassword()">
+                                        @Html.HiddenFor(m => m.data.ID, new { @class = "form-control" })
+
+
+
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <button type="submit" value="CompanyUpdate" name="ButtonUpdate" class="btn btn-outline-success">
+                                        Güncelle
+                                    </button>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+</div>
+<script>
+    function togglePassword() {
+        var element = document.getElementById('password');
+        element.type = (element.type == 'password' ? 'text' : 'password');
+    }
+</script>

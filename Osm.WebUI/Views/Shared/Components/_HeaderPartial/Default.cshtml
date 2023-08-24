@@ -1,0 +1,130 @@
+﻿@model List<HeaderItem>
+
+
+<header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+        <a href="http://localhost:5274/" class="logo d-flex align-items-center">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <img src="/img/logo.png" alt="">
+            <img src="/img/LOGO.jpg" alt="">
+            <h1 class="d-flex align-items-center">OSMANLI MAKİNA</h1>
+        </a>
+
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a href="http://localhost:5274">Ana Sayfa</a></li>
+                <li class="dropdown">
+                    <a href="/ekipmanlar"><span>Ekipmanlar</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#"><span>Temizleme Bölümü</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+
+                                @foreach (var item in Model)
+                                {
+                                    if (item.CategoryName == "Temizleme")
+                                    {
+                                        <li style=""><a href="/ekipmandetay/@item.ID">@item.Name</a></li>
+                                    }
+
+                                }
+
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#"><span>Öğütme Bölümü</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+                                @foreach (var item in Model)
+                                {
+                                    if (item.CategoryName == "Öğütme")
+                                    {
+                                        <li style=""><a href="/ekipmandetay/@item.ID">@item.Name</a></li>
+                                    }
+
+                                }
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#"><span>Taşıma Bölümü</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+                                @foreach (var item in Model)
+                                {
+                                    if (item.CategoryName == "Taşıma")
+                                    {
+                                        <li style=""><a href="/ekipmandetay/@item.ID">@item.Name</a></li>
+                                    }
+
+                                }
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#"><span>Paketleme Bölümü</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+                                @foreach (var item in Model)
+                                {
+                                    if (item.CategoryName == "Paketleme")
+                                    {
+                                        <li style=""><a href="/ekipmandetay/@item.ID">@item.Name</a></li>
+                                    }
+
+                                }
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#"><span>Depolama Bölümü</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+                                @foreach (var item in Model)
+                                {
+                                    if (item.CategoryName == "Depolama")
+                                    {
+                                        <li style=""><a href="/ekipmandetay/@item.ID">@item.Name</a></li>
+                                    }
+
+                                }
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#"><span>Yem Bölümü</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+                                @foreach (var item in Model)
+                                {
+                                    if (item.CategoryName == "Yem")
+                                    {
+                                        <li style=""><a href="/ekipmandetay/@item.ID">@item.Name</a></li>
+                                    }
+
+                                }
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="/ekipmanlar"><span>Montaj Malzemeleri</span> </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li><a href="@Url.RouteUrl("iletisim")">İletişim</a></li>
+                <li><a href="@Url.RouteUrl("hakkimizda")">Hakkımızda</a></li>
+                <li style="cursor:default">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li style="cursor:default">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li style="cursor:default">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li style="cursor:default">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li style="cursor:default">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li style="cursor:default">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li style="cursor:default">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li style="cursor:default">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li style="cursor:default">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li style="cursor:default">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li style="cursor:default">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+            </ul>
+        </nav>
+
+
+    </div>
+</header>
+

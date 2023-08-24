@@ -1,0 +1,55 @@
+﻿@model List<FooterItem>
+<footer id="footer" class="footer">
+
+    <div class="footer-content">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-5 col-md-12 footer-info">
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <span>Osmanlı Makina</span>
+                    </a>
+                    <p>Osmanlı Makina olarak alnında deneyimli ve yüksek makine teknolojisi ile anahtar teslim un, irmik, yem fabrikalarında her zaman yanınızdayız.</p>
+
+                </div>
+
+                <div class="col-lg-2 col-6 footer-links">
+                    <h4>Faydalı Linkler</h4>
+                    <ul>
+                        <li><i class="bi bi-house"></i> <a href="@Url.RouteUrl("")">Ana Sayfa</a></li>
+                        <li><i class="bi bi-tools"></i> <a href="@Url.RouteUrl("Products")">Ekipmanlar</a></li>
+                        <li><i class="bi bi-phone"></i> <a href="@Url.RouteUrl("Contact")">İletişim</a></li>
+                        <li><i class="bi bi-info"></i> <a href="@Url.RouteUrl("About")">Hakkımızda</a></li>
+
+                    </ul>
+                </div>
+                @foreach (var item in Model)
+                {
+                    
+                
+                    <div class="col-lg-2 col-6 footer-links">
+                        <h4> İletişim</h4>
+                        <ul>
+                        <li><i class="bi bi-phone"></i>Telefon: @item.Tel </li>
+                            <li><i class="bi bi-phone"></i> Fax: @item.Fax </li>
+                        <li><i class="bi bi-envelope"></i> Mail: @item.Mail1 </li>
+                        <li><i class="bi bi-envelope"></i> Mail: @item.Mail2 </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-6 footer-links">
+                        <h4> Adres</h4>
+                        <ul>
+                        <li><i class="bi bi-pin-map"></i>@item.Adress</li>
+                            <li><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1095.753744765189!2d34.92993602052716!3d40.52284107305746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4080d540d6a1fe6d%3A0x2b08538bd60bad0f!2sOsmanl%C4%B1%20Makina%20Fabr.!5e0!3m2!1str!2str!4v1683062953123!5m2!1str!2str" width="400" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></li>
+                        </ul>
+                    </div>
+                }
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+</footer>

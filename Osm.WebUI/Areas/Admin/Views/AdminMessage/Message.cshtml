@@ -1,0 +1,92 @@
+﻿@using Osm.WebUI.Areas.Admin.Models;
+@model List<MessageItem>
+
+@{
+    ViewData["Title"] = "Message";
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Container-fluid starts -->
+    <div class="container-fluid">
+        <!-- Main content starts -->
+        <div>
+            <!-- Row Starts -->
+            <div class="row">
+                <div class="col-sm-12 p-0">
+                    <div class="main-header">
+                        <h4>Mesajlar</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Row end -->
+            <!-- Row start -->
+            <!-- Form Control starts -->
+            <!-- Form Control ends -->
+            <!-- Textual inputs starts -->
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-header-text"></h5>
+
+                    </div>
+
+                    <!-- end of modal -->
+                    <div class="card-block">
+
+                        <br />
+
+
+
+
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+
+                                    <th>Adı</th>
+                                    <th>Telefon</th>
+                                    <th>Konu</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.Tel</td>
+                                        <td>@item.Subject</td>
+
+
+                                        <td>
+                                            @*<a href="@Url.RouteUrl("ProductUpdate",new {id = item.ID })" class="btn btn-outline-success">Güncelle</a>*@
+                                            <a href="/adminmesajdetay/@item.ID" class="btn btn-outline-success">Detayları Gör</a>
+
+                                        </td>
+
+                                    </tr>
+                                }
+
+
+                            </tbody>
+
+                        </table>
+
+
+
+
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,45 @@
+﻿@model List<AboutItem>
+@{
+    ViewData["Title"] = "About";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('/img/about-header.jpg');">
+    <div class="container position-relative d-flex flex-column align-items-center">
+
+        <h2>Hakkımızda</h2>
+        <ol>
+            <li><a href="http://localhost:5274">Ana Sayfa</a></li>
+            <li>Hakkımızda</li>
+        </ol>
+
+    </div>
+</div>
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4" data-aos="fade-up">
+            <div class="col-lg-6">
+                <img src="~/img/kaynak.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6">
+                <div class="content ps-lg-5">
+                    <h3>Biz Kimiz?</h3>
+                    @foreach (var item in Model)
+                    {
+                        <p>
+                            @item.About
+                        </p>
+
+                    }
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

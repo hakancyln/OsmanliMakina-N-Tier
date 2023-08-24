@@ -1,0 +1,113 @@
+﻿@model List<ProductItem>
+
+@{
+    ViewData["Title"] = "Product";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/img/portfolio-header.jpg');">
+        <div class="container position-relative d-flex flex-column align-items-center">
+
+            <h2>Ekipmanlar</h2>
+            <ol>
+                <li><a href="http://localhost:5274">Ana Sayfa</a></li>
+                <li>Ekipmanlar</li>
+            </ol>
+
+        </div>
+    </div><!-- End Breadcrumbs -->
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+        <div class="container" data-aos="fade-up">
+
+            <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
+
+                <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
+                    <li data-filter="*" class="filter-active">Tümü</li>
+                    <li data-filter=".filter-Temizleme">Temizleme</li>
+                    <li data-filter=".filter-Öğütme">Öğütme</li>
+                    <li data-filter=".filter-Taşıma">Taşıma</li>
+                    <li data-filter=".filter-Paketleme">Paketleme</li>
+                    <li data-filter=".filter-Depolama">Depolama</li>
+                    <li data-filter=".filter-Yem">Yem</li>
+                    <li data-filter=".filter-Montaj">Montaj</li>
+                </ul><!-- End Portfolio Filters -->
+
+                <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="300">
+                    @foreach (var item in Model)
+                    {
+                        if (item.CategoryName == "Montaj")
+                        {
+                            if (item.Image ==null)
+                            {
+                                @*<img src="" alt="">*@
+                                <div class="col-lg-4 col-md-6 portfolio-item filter-@item.CategoryName">
+                                    <a href="#/"><img height="440" width="342" src="~/img/error_wallpaper_image_151413_1920x1080.jpg" class="" alt=""></a>
+                                    <div class="portfolio-info">
+                                        <h4>@item.Name</h4>
+                                        <a href="~/img/error_wallpaper_image_151413_1920x1080.jpg" title="@item.Name" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                        <a href="#/" title="Ürünü Gör" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                    </div>
+                                    <h5 class="text-center" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">@item.Name</h5>
+
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-lg-4 col-md-6 portfolio-item filter-@item.CategoryName">
+                                    <a href="#/"><img height="310" src="~/@item.Image" class="" alt=""></a>
+                                    <div class="portfolio-info">
+                                        <h4>@item.Name</h4>
+                                        <a href="~/@item.Image" title="@item.Name" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                        <a href="#/" title="Ürünü Gör" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                    </div>
+                                    <h5 class="text-center " style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">@item.Name</h5>
+
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            if (item.Image == null)
+                            {
+@*                                <img src="" alt="">
+*@                                <div class="col-lg-4 col-md-6 portfolio-item filter-@item.CategoryName">
+                                    <a href="/ekipmandetay/@item.ID"><img height="440" width="342" src="~/img/error_wallpaper_image_151413_1920x1080.jpg" class="" alt=""></a>
+                                    <div class="portfolio-info">
+                                        <h4>@item.Name</h4>
+                                        <a href="~/img/error_wallpaper_image_151413_1920x1080.jpg" title="@item.Name" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                        <a href="/ekipmandetay/@item.ID" title="Ürünü Gör" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                    </div>
+                                    <h5 class="text-center" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">@item.Name</h5>
+
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-lg-4 col-md-6 portfolio-item filter-@item.CategoryName">
+                                    <a href="/ekipmandetay/@item.ID"><img height="310" src="~/@item.Image" class="" alt=""></a>
+                                    <div class="portfolio-info">
+                                        <h4>@item.Name</h4>
+                                        <a href="~/@item.Image" title="@item.Name" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                        <a href="/ekipmandetay/@item.ID" title="Ürünü Gör" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                    </div>
+                                    <h5 class="text-center " style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">@item.Name</h5>
+
+                                </div>
+                            }
+                        }
+
+                        <!-- End Portfolio Item -->
+                    }
+
+                </div> 
+
+            </div>
+
+        </div>
+    </section><!-- End Portfolio Section -->
+
+</main>
